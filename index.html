@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate Image Developed by MannR">
+    <meta name="author" content="MannR">
+    <link herf="https://raw.githubusercontent.com/MannOffc/MannKeys/refs/heads/main/Elemen%20Baru%2044%20%5B50E7051%5D.png" rel="icon">
+    <link href="https://raw.githubusercontent.com/MannOffc/MannKeys/refs/heads/main/Elemen%20Baru%2044%20%5B50E7051%5D.png" rel="apple-touch-icon">
+    <meta property="og:site_name" name="og:site_name" content="Generate Image Developed by MannR">
+    <meta property="og:title" name="og:title" content="Generate Image">
+    <meta property="og:description" name="og:description" content="Generate Image is a website that uses AI to generate images according to the prompt you enter">
+    <meta property="og:image" content="https://raw.githubusercontent.com/MannOffc/MannKeys/refs/heads/main/Elemen%20Baru%2044%20%5B50E7051%5D.png">
+    <link href="https://raw.githubusercontent.com/MannOffc/MannKeys/refs/heads/main/Elemen%20Baru%2044%20%5B50E7051%5D.png" rel="shortcut icon">
+    <title>Generate Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #imageForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Image</h1>
+    <div id="imageForm">
+        <input type="text" id="prompt" placeholder="Enter your image prompt...">
+        <button onclick="generateImage()">Generate</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.href = document.getElementById('aiImage').src;
+            link.download = 'gambar-ai.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        async function generateImage() {
+            // Menambahkan link unduhan ke halaman
+            const prompt = document.getElementById('prompt').value;
+            document.getElementById("result").innerHTML = `<img src="https://api-nodex.vercel.app/flux-image/ai-dystopia?prompt=${prompt}" alt="Gambar AI" id="aiImage" onclick="downloadImage()">`
+        }
+    </script>
+</body>
+</html>
